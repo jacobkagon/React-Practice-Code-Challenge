@@ -28,10 +28,10 @@ class App extends Component {
   }
 
   addMoney = (event) => {
+    event.preventDefault()
     this.setState({
-      money: this.state.money + event.target.value
+      money: this.state.money + +event.target[0].value
     })
-
   }
 
   handleSushiClick = (sushi) => {
@@ -64,7 +64,7 @@ class App extends Component {
         handleSushiClick={this.handleSushiClick}
           plates={this.state.plates}
         />
-        <Table money={this.state.money} plates={this.state.plates}/>
+        <Table money={this.state.money} plates={this.state.plates} addMoney={this.addMoney}/>
       </div>
     );
   }
